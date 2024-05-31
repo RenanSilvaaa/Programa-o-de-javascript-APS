@@ -1,0 +1,42 @@
+//Nome da disciplina: Programação Javascript.
+//código da turma: 963R.
+//Nome e matrícula: Renan Batista da Silva, 2024101270.
+
+function isPrime(num){
+if (num<2){ //aqui verifica se o numero é menor que 2.
+return false;
+}
+for (let i=num-1 ;i>=2 ;i--)
+if (num%i==0){ // se o número tiver o resto igual a zero, ele não é primo.
+return false;
+}
+return true; //se passar por tudo, é verdadeiro.
+
+}
+
+function findLargestPrimes(num, contagem) {
+let primos = [];
+let comeco=num + 1;
+
+while (primos.length < contagem){ //esse array "length" retorna a quantidade de números que são primos
+if (isPrime(comeco)){
+primos.push(comeco) //esse array "push" adiciona os números que forem primos no "let primos= []"
+}
+comeco++
+
+}
+return primos;
+}
+
+let num = parseInt(prompt("Digite um numero:"));
+let ehprimo= isPrime(num)
+if (ehprimo){
+alert ("E primo");
+} else {
+alert ("nao e primo"); //Verifica se o numero é primo, caso seja ou não, exibirá uma mensagem.
+}
+let primos = findLargestPrimes (num,10);
+
+console.log("os numeros primos depois de :" + num + " sao");
+console.log(primos);
+
